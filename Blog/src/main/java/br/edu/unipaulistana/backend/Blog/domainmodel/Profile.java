@@ -11,3 +11,4 @@ public class Profile {
     private @Getter @Setter String pictureUrl;
     private @Getter @Setter User user;
 }
+
