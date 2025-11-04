@@ -2,6 +2,8 @@ package br.edu.unipaulistana.backend.Blog.controllers;
 
 import br.edu.unipaulistana.backend.Blog.domainmodel.User;
 import br.edu.unipaulistana.backend.Blog.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,12 +16,18 @@ import java.util.UUID;
 //http://locallhost:8080/users
 @RestController
 @RequestMapping("/api/users")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
+@Tag(name = "Usuarios",description = "Operações relativas a usuarios")
 public class UserController {
 
     private final UserService userService;
 
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping
+    @Operation(method = "GET", summary = "listar todos os usuarios")
     public ResponseEntity<List<User>> findAll(){
         return ResponseEntity.ok(this.userService.findAll());
     }
