@@ -1,7 +1,6 @@
 package br.edu.unipaulistana.backend.Blog.service;
 
 import br.edu.unipaulistana.backend.Blog.domainmodel.User;
-import br.edu.unipaulistana.backend.Blog.domainmodel.repositories.NonPersistentUserRepository;
 import br.edu.unipaulistana.backend.Blog.domainmodel.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,10 +9,14 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
 
     private final UserRepository repository;
+
+    public UserServiceImpl(UserRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<User> findAll() {

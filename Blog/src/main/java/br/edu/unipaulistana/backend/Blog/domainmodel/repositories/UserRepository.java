@@ -14,7 +14,7 @@ public interface UserRepository extends
         JpaRepository <User, UUID>,
 
         UserRepositoryCustom<User, UUID>{
-//QuerydslPredicateExecutor<User>,
+    //QuerydslPredicateExecutor<User>,
     @Query("SELECT u FROM User u WHERE u.email = :email")
     public Optional<User> findByEmail(String email);
 
