@@ -17,12 +17,13 @@ public interface UserRepository extends
     //QuerydslPredicateExecutor<User>,
     @Query("SELECT u FROM User u WHERE u.email = :email")
     public Optional<User> findByEmail(String email);
-
+    @Query("select u from User u where u.name = :name")
     public Optional<User> findByName(String name);
+    @Query("select u from User u where u.name = :name and u.email = :email")
     public Optional<User> findByNameAndEmail(String name, String email);
     public List<User> findByNameStartingWithAndNameEndingWith(String name1, String name2);
 
-    // Q1 JPQL  biusca o user por ID e faz fetch com profile e posts.
+    // Q1 JPQL  busca o user por ID e faz fetch com profile e posts.
     @Query(
             """
         select distinct u
@@ -34,7 +35,7 @@ public interface UserRepository extends
     )
     Optional<User> findByIdWithProfileAndPosts(@Param("id") UUID id);
 
-    //Q2 LPQL usuarios cujo nome contem um parametro  que tenham pelo menos N roles.
+    //Q2 JPQL busca usuarios cujo nome contem um parametro  que tenham pelo menos N roles.
     @Query(
             """
         select u

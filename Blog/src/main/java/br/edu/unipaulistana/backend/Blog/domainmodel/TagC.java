@@ -21,7 +21,7 @@ public class TagC {
     @Column(name = "Name", nullable = false)
     private @Getter @Setter String name;
 
-    @ManyToMany(mappedBy = "tags")
+    @ManyToMany(mappedBy = "tagCs")
     private @Getter @Setter Set<Post> posts;
 
     @Override
