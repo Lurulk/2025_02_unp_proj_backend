@@ -24,7 +24,7 @@ public class TagController {
     }
 
     @GetMapping
-    @Operation(method = "GET", summary = "listar todos os ç")
+    @Operation(method = "GET", summary = "listar todos as tags")
     public ResponseEntity<List<TagC>> findAll(){
         return ResponseEntity.ok(this.tagService.findAll());
     }
