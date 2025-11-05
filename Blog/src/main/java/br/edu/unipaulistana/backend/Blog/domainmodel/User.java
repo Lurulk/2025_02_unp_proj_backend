@@ -33,7 +33,11 @@ public class User {
     private @Getter @Setter String password;
 
     @ManyToMany
+    @JoinTable(name = "TBL_USERS_ROLES", joinColumns = @JoinColumn(name = "User_Id"), inverseJoinColumns = @JoinColumn(name = "Role_Id"))
     private @Getter @Setter Set<Role> roles;
+
+    @OneToMany
+    private @Getter @Setter Set<Post> posts;
 
     @OneToOne
     private @Getter @Setter Profile profile;
