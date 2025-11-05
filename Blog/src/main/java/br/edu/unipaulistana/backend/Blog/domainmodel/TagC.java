@@ -12,7 +12,7 @@ import java.util.UUID;
 @ToString
 @Entity
 @Table(name = "TBL_TAGS")
-public class Tag {
+public class TagC {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "Id", nullable = false)
@@ -27,8 +27,8 @@ public class Tag {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Tag tag = (Tag) o;
-        return Objects.equals(id, tag.id);
+        TagC tagC = (TagC) o;
+        return Objects.equals(id, tagC.id);
     }
 
     @Override

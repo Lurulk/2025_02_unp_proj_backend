@@ -30,7 +30,7 @@ public class Post {
 
     @ManyToMany
     @JoinTable(name = "TBL_POSTS_TAGS", joinColumns = @JoinColumn(name = "Post_Id"), inverseJoinColumns = @JoinColumn(name = "Tag_Id"))
-    private @Getter @Setter Set<Tag> tags;
+    private @Getter @Setter Set<TagC> tagCs;
 
     @Override
     public boolean equals(Object o) {

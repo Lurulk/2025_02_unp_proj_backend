@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Objects;
+import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,9 +14,9 @@ import java.util.Objects;
 public class Profile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column
-    private @Getter @Setter Long id;
+    private @Getter @Setter UUID id;
 
     @Column(nullable = false, length = 200)
     private @Getter @Setter String bio;
