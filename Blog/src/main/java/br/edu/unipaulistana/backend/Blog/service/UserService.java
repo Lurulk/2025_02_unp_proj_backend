@@ -3,13 +3,14 @@ package br.edu.unipaulistana.backend.Blog.service;
 import br.edu.unipaulistana.backend.Blog.domainmodel.User;
 import br.edu.unipaulistana.backend.Blog.domainmodel.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
     List<User> findAll();
 
     User findById(UUID id);
